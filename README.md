@@ -1,4 +1,4 @@
-**GeeksCli** es un cliente desarrollado en Go para gestionar tus entornos de programación desde tu terminal.
+## **GeeksCli** es un cliente desarrollado en Go para gestionar tus entornos de programación desde tu terminal.
 
 ### Desarrollo
 Para poder seguir desarrollando la aplicación deberás tener instalado Go, para ello:
