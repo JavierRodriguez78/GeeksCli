@@ -1,3 +1,7 @@
+[![GeeksCli](https://circleci.com/gh/JavierRodriguez78/GeeksCli/tree/circleci-project-setup.svg?style=svg)](https://circleci.com/gh/JavierRodriguez78/GeeksCli/tree/circleci-project-setup)
+
+
+
 ## **GeeksCli** es un cliente desarrollado en Go para gestionar tus entornos de programación desde tu terminal.
 
 ### Desarrollo
