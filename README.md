@@ -21,9 +21,21 @@ $> go install
 ```
 $> go build
 ```
+6º Para ejecutar el proyecto
+```
+$> go run main.go
+```
 
 
 ### Estructura del proyecto
+![](https://github.com/JavierRodriguez78/GeeksCli/blob/master/assets/Estructura.png)
 
+El proyecto dispone de un directorio denominado **services** donde añadiremos el código de los diveros servicios de tercero que desarrollemos.
+Y otra directorio denominado lib donde almacenaremos nuestras **librerias**
+
+El archivo de arranque es **main.go**
+
+### Configuración.
+1º Debemos añadir  en la servicio de DigitalOcean en el archivo TakenSource.go dentro de la constante **pat** el acceso Token que generamos en DigitalOcean para poder dar acceso los pasos para obtener dicho token los podéis seguir [aquí](https://www.digitalocean.com/docs/apis-clis/api/create-personal-access-token/)
 
 
