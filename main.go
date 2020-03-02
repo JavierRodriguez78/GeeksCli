@@ -3,6 +3,7 @@ package main
 import (
 	L "GeeksCli/lib"
 	"GeeksCli/services/digitalocean"
+	"GeeksCli/services/oauth2"
 	"fmt"
 	"gopkg.in/yaml.v3"
 	"io/ioutil"
@@ -10,18 +11,20 @@ import (
 	"path/filepath"
 )
 
-
 type Config struct {
-	Env                 string `yaml:"env"`
+	Env string `yaml:"env"`
 }
-
-
 
 func main() {
   L.Info()
-  digital := digitalocean.ManagamentDroplet{}
-  digital.CreateDroplet()
+  authenticate := oauth2.Authenticate{}
+  digital := digitalocean.ManagamentDroplet{
+	OauthClient: authenticate.LogIn(),
+  }
 
+  digital.CheckAuthentication()
+  digital.CreateDroplet()
+  
   os.Mkdir("."+string(filepath.Separator) + "geeks",0777)
 	f,  err := os.Create("geeks/config.yml")
 	f.Name()
@@ -37,7 +40,5 @@ func main() {
 		fmt.Println(err)
 		panic(err)
 	}
-
-
 }
 
