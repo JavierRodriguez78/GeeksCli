@@ -23,24 +23,24 @@ func  (m *ManagamentDroplet) CheckAuthentication()  {
 }
 
 func (m *ManagamentDroplet)  CreateDroplet() {
-	client := godo.NewClient(m.OauthClient)
+	// client := godo.NewClient(m.OauthClient)
 
-	dropletName := "super-cool-droplet"
-	createRequest := &godo.DropletCreateRequest {
-		Name:   dropletName,
-		Region: "nyc3",
-		Size:   "s-1vcpu-1gb",
-		Image: godo.DropletCreateImage {
-			Slug: "ubuntu-14-04-x64",
-		},
-	}
+	// dropletName := "super-cool-droplet"
+	// createRequest := &godo.DropletCreateRequest {
+	// 	Name:   dropletName,
+	// 	Region: "nyc3",
+	// 	Size:   "s-1vcpu-1gb",
+	// 	Image: godo.DropletCreateImage {
+	// 		Slug: "ubuntu-14-04-x64",
+	// 	},
+	// }
 
-	ctx := context.TODO()
-	newDroplet, _, err := client.Droplets.Create(ctx, createRequest)
-	if err != nil {
-		fmt.Printf("Something bad happened: %s\n\n", err)
+	// ctx := context.TODO()
+	// newDroplet, _, err := client.Droplets.Create(ctx, createRequest)
+	// if err != nil {
+	// 	fmt.Printf("Something bad happened: %s\n\n", err)
 
-	}
+	// }
 
-	fmt.Printf(newDroplet.PublicIPv4())
+	// fmt.Printf(newDroplet.PublicIPv4())
 }

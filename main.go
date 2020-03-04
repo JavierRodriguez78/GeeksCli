@@ -3,12 +3,12 @@ package main
 import (
 	L "GeeksCli/lib"
 	"GeeksCli/services/digitalocean"
-	"GeeksCli/services/oauth2"
+	"GeeksCli/services/github"
 	"fmt"
-	"gopkg.in/yaml.v3"
-	"io/ioutil"
-	"os"
-	"path/filepath"
+	// "gopkg.in/yaml.v3"
+	// "io/ioutil"
+	// "os"
+	// "path/filepath"
 )
 
 type Config struct {
@@ -16,29 +16,41 @@ type Config struct {
 }
 
 func main() {
-  L.Info()
-  authenticate := oauth2.Authenticate{}
-  digital := digitalocean.ManagamentDroplet{
-	OauthClient: authenticate.LogIn(),
-  }
+	L.Info()
+	digitaloceanAuthentication := digitalocean.Authenticate{}
+	digitalocean := digitalocean.ManagamentDroplet{
+		OauthClient: digitaloceanAuthentication.NewClient(),
+	}
 
-  digital.CheckAuthentication()
-  digital.CreateDroplet()
+	fmt.Println("- digitalocean - ")
+	digitalocean.CheckAuthentication()
+	// digitalocean.CreateDroplet()
+	fmt.Println("-----------------------------------------------------------------")
+
+
+	githubAuthentication := github.Authenticate{}
+	github := github.ManagamentRepository{
+		OauthClient: githubAuthentication.NewClient(),
+	}
   
-  os.Mkdir("."+string(filepath.Separator) + "geeks",0777)
-	f,  err := os.Create("geeks/config.yml")
-	f.Name()
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	filename, _ := filepath.Abs("geeks/config.yml")
-	yamlFile, err := ioutil.ReadFile(filename)
-	var config Config
-	err = yaml.Unmarshal(yamlFile, &config)
-	if err != nil {
-		fmt.Println(err)
-		panic(err)
-	}
+	fmt.Println("- github - ")
+	github.CheckAuthentication()
+	fmt.Println("-----------------------------------------------------------------")
+
+  	// os.Mkdir("."+string(filepath.Separator) + "geeks",0777)
+	// f,  err := os.Create("geeks/config.yml")
+	// f.Name()
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+	// filename, _ := filepath.Abs("geeks/config.yml")
+	// yamlFile, err := ioutil.ReadFile(filename)
+	// var config Config
+	// err = yaml.Unmarshal(yamlFile, &config)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	panic(err)
+	// }
 }
 

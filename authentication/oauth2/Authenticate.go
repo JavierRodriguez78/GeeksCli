@@ -1,7 +1,6 @@
 package oauth2
 
 import (
-	"os"
 	"context"
 	"net/http"
 	"golang.org/x/oauth2"
@@ -10,9 +9,9 @@ import (
 type Authenticate struct {
 }
 
-func  (a *Authenticate) LogIn() (*http.Client) {
+func  (o *Authenticate) NewClient(token string) (*http.Client) {
 	tokenSource := &TokenSource {
-		AccessToken: os.Getenv("ACCESS_TOKEN"),
+		AccessToken: token,
 	}
 
 	return oauth2.NewClient(context.Background(), tokenSource)
