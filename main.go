@@ -1,14 +1,8 @@
 package main
 
 import (
-	L "GeeksCli/lib"
-	"GeeksCli/services/digitalocean"
-	"fmt"
-	"gopkg.in/yaml.v3"
-	"io/ioutil"
-	"os"
-	"path/filepath"
-	"github.com/spf13/cobra"
+	"GeeksCli/cmd"
+
 )
 
 
@@ -19,7 +13,10 @@ type Config struct {
 
 
 func main() {
-  L.Info()
+
+
+  cmd.Execute()
+/*
   digital := digitalocean.ManagamentDroplet{}
   digital.CreateDroplet()
 
@@ -39,6 +36,6 @@ func main() {
 		panic(err)
 	}
 
-
+*/
 }
 
